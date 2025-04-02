@@ -1,3 +1,98 @@
-<p>
-  register works!
-</p>
+<div class="register w-100">
+  <div class="text-center">
+    <h1>Welcome</h1>
+  </div>
+  <div class="mt-5">
+    <div
+      class="d-flex justify-content-center align-items-center flex-column gap-4"
+    >
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div
+          class="row d-flex justify-content-center align-items-center text-center"
+        >
+          <div
+            class="col-10 col-md-6"
+            *ngFor="
+              let field of [
+                'userName',
+                'email',
+                'password',
+                'confirmPassword',
+                'phoneNumber'
+              ]
+            "
+          >
+            <mat-form-field appearance="outline" class="w-100 mb-2">
+              <mat-label>Enter your {{ field | titlecase }}</mat-label>
+              <div
+                class="d-flex ion-justify-content-between ion-align-items-center"
+              >
+                <input
+                  matInput
+                  [type]="
+                    (field === 'password' || field === 'confirmPassword') &&
+                    !passwordVisible
+                      ? 'password'
+                      : 'text'
+                  "
+                  [placeholder]="field === 'email' ? 'email@example.com' : ''"
+                  [formControlName]="field"
+                  (blur)="updateErrorMessage()"
+                  required
+                />
+                <mat-icon
+                  *ngIf="registerForm.get(field)?.valid"
+                  class="valid-icon"
+                  color="primary"
+                >
+                  check_circle
+                </mat-icon>
+                <ng-container *ngIf="registerForm.get(field)?.invalid">
+                  <mat-icon
+                    *ngIf="
+                      (field === 'password' && showPasswordToggle) ||
+                      (field === 'confirmPassword' && showConfirmPasswordToggle)
+                    "
+                    (click)="togglePasswordVisibility()"
+                  >
+                    {{ passwordVisible ? "visibility_off" : "visibility" }}
+                  </mat-icon>
+                </ng-container>
+              </div>
+              <mat-error *ngIf="registerForm.get(field)?.invalid">
+                {{ getErrorMessage(field) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="mt-4 text-center">
+          <button class="btn btn-create" [disabled]="registerForm.invalid">
+            Create Account
+          </button>
+        </div>
+      </form>
+      <div class="mt-2">
+        <h3>
+          Have an account?
+          <span><a [routerLink]="['/login/login']">Sign In</a></span>
+        </h3>
+      </div>
+      <div class="mt-3">
+        <div
+          class="d-flex ion-justify-content-center ion-align-items-center gap-3"
+        >
+          <div class="circle" *ngFor="let icon of ['gmail', 'facebook', 'x']">
+            <img
+              src="../../../../assets/icon/icons8-{{ icon }}-logo-50.png"
+              alt="{{ icon }}-icon"
+            />
+          </div>
+        </div>
+        <div class="mt-3 text-center">
+          <p>Sign in with another account</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

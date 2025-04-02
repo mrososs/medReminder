@@ -11,15 +11,17 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { isNgContainer } from '@angular/compiler';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+
     LoginPageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: [LoginPage,HomeComponent,LoginComponent,RegisterComponent]
+  declarations: [LoginPage, HomeComponent, LoginComponent, RegisterComponent],
 })
 export class LoginPageModule {}
