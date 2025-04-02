@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   passwordVisible = false; // For toggling password visibility
   fb = inject(FormBuilder);
 
-  constructor() {
+  constructor(private _route:Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -84,6 +85,9 @@ export class LoginComponent implements OnInit {
     // Your login logic here
     if (this.loginForm.invalid) {
       this.updateErrorMessage();
+    } else{
+      this._route.navigate(['/home'])
     }
+    
   }
 }

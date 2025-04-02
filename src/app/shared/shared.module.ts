@@ -6,9 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { TabsComponent } from './components/tabs/tabs.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [TabsComponent],
   imports: [
     CommonModule,
     MatStepperModule,
@@ -17,11 +21,14 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     MatFormFieldModule,
+    IonicModule.forRoot(),
   ],
   exports: [
     MatButtonModule,
     MatStepperModule,
+    TabsComponent,
     MatInputModule,
     MatIconModule,
     FormsModule,

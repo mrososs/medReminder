@@ -1,0 +1,24 @@
+ion-tab-bar {
+  --ion-background-color: #6200ee; // Background color (Purple)
+}
+
+ion-tab-button {
+  color: white; // Default color for non-active tabs
+  opacity: 0.5;
+}
+
+ion-tab-button ion-icon {
+  color: white; // Default icon color
+  opacity: 0.5;
+
+}
+
+ion-tab-button.tab-selected {
+  color: white !important; // Active tab text color
+  opacity: 1;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: white !important; // Active tab icon color
+  opacity: 1;
+}
