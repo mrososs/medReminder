@@ -1,3 +1,87 @@
-<p>
-  login works!
-</p>
+<div class="login w-100">
+  <div class="text-center">
+    <h1>Welcome Back</h1>
+  </div>
+  <div class="mt-5">
+    <div
+      class="d-flex justify-content-center align-items-center flex-column gap-4"
+    >
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div
+          class="row d-flex justify-content-center align-items-center text-center"
+        >
+          <div class="col-10 col-md-6">
+            <!-- Centers the column -->
+            <mat-form-field appearance="outline" class="w-100 mb-2">
+              <mat-label>Enter your email</mat-label>
+              <div
+                class="d-flex ion-justify-content-between ion-align-items-center"
+              >
+                <input
+                  matInput
+                  placeholder="email@example.com"
+                  formControlName="email"
+                  (blur)="updateErrorMessage()"
+                  required
+                />
+                <mat-icon
+                  *ngIf="loginForm.get('email')?.valid"
+                  class="valid-icon"
+                  color="primary"
+                >
+                  check_circle
+                </mat-icon>
+              </div>
+
+              <mat-error *ngIf="loginForm.get('email')?.invalid">
+                {{ getEmailErrorMessage() }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-10 col-md-6">
+            <!-- Centers the column -->
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter your Password</mat-label>
+              <div
+                class="d-flex ion-justify-content-between ion-align-items-center"
+              >
+                <input
+                  matInput
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  placeholder="*****"
+                  formControlName="password"
+                  (blur)="updateErrorMessage()"
+                  required
+                />
+
+                <mat-icon
+                  (click)="togglePasswordVisibility()"
+                  *ngIf="!loginForm.get('password')?.valid"
+                  >{{
+                    passwordVisible ? "visibility_off" : "visibility"
+                  }}</mat-icon
+                >
+                <mat-icon
+                  *ngIf="loginForm.get('password')?.valid"
+                  class="valid-icon"
+                  color="primary"
+                >
+                  check_circle
+                </mat-icon>
+              </div>
+              <mat-error *ngIf="loginForm.get('password')?.invalid">
+                {{ getPasswordErrorMessage() }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <button class="btn btn-login">Login</button>
+        </div>
+      </form>
+      <div class="mt-2">
+        <h3>New User? <span>Sign Up</span></h3>
+      </div>
+    </div>
+  </div>
+</div>

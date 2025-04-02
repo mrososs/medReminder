@@ -1,0 +1,83 @@
+.login {
+    h3{
+        color: #7A73D1;
+        font-weight: 200;
+        font-size: 0.6rem;
+        span{
+            font-weight: 700;
+            color: #211c84;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+    }
+    .valid-icon{
+        color: #211c84;
+    }
+  h1 {
+    color: #211c84;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  p {
+    color: #b5a8d5;
+    font-size: 0.7rem;
+  }
+
+  .btn {
+    border-radius: 30px;
+    padding: 1rem;
+    width: 15rem; /* Default width */
+    max-width: 90%; /* Ensures it fits within smaller screens */
+    font-weight: 600;
+
+    &.btn-create {
+      background-color: #7a73d1;
+      color: white;
+
+      &:hover {
+        background-color: #211c84;
+      }
+    }
+
+    &.btn-login {
+      background: none;
+      border: 1px solid #211c84;
+      color: #211c84;
+    }
+  }
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .btn {
+      width: 15rem; /* Reduce button size on tablets */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .btn {
+      width: 15rem; /* Smaller size for mobile screens */
+      padding: 0.8rem; /* Reduce padding for compact look */
+    }
+  }
+  @media (max-width: 250px) {
+    .btn {
+      width: 100%; /* Smaller size for mobile screens */
+      padding: 0.8rem; /* Reduce padding for compact look */
+    }
+  }
+
+  .circle {
+    width: 2rem;
+    height: 2rem;
+    background-color: #7a73d1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}
