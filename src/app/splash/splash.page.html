@@ -1,14 +1,23 @@
 <ion-content class="vh-100">
-  <div class="stepper-container h-100 d-flex ion-align-items-center ion-justify-content-center">
+  <div
+    class="stepper-container h-100 d-flex ion-align-items-center ion-justify-content-center"
+  >
     <mat-horizontal-stepper [linear]="true" #stepper>
       <mat-step label="Step 1">
         <div class="step-content" [@stepTransition]>
           <div class="step mb-5">
-            <img src="../../assets/img/10352186.png" alt="Track Your Medicines" />
-            <div class="d-flex flex-column ion-align-items-center ion-justify-content-center text-center">
+            <img
+              src="../../assets/img/10352186.png"
+              alt="Track Your Medicines"
+            />
+            <div
+              class="d-flex flex-column ion-align-items-center ion-justify-content-center text-center"
+            >
               <h2>Track Your Medicines</h2>
               <p>Manage and track all your medications easily.</p>
-              <div class="steps d-flex ion-align-items-center ion-justify-content-center">
+              <div
+                class="steps d-flex ion-align-items-center ion-justify-content-center"
+              >
                 <div class="rect"></div>
                 <div class="circle"></div>
               </div>
@@ -25,22 +34,31 @@
       <mat-step label="Step 2">
         <div class="step-content" [@stepTransition]>
           <div class="step mb-5">
-            <img src="../../assets/img/10352186.png" alt="Track Your Medicines" />
-            <div class="d-flex flex-column ion-align-items-center ion-justify-content-center text-center">
+            <img
+              src="../../assets/img/10352186.png"
+              alt="Track Your Medicines"
+            />
+            <div
+              class="d-flex flex-column ion-align-items-center ion-justify-content-center text-center"
+            >
               <h2>Set Reminder</h2>
               <p>Manage and track all your medications easily.</p>
-              <div class="steps d-flex ion-align-items-center ion-justify-content-center">
+              <div
+                class="steps d-flex ion-align-items-center ion-justify-content-center"
+              >
                 <div class="circle"></div>
                 <div class="rect" style="margin-left: 1rem"></div>
               </div>
             </div>
           </div>
-          <div class="button-container d-flex ion-justify-content-between ion-align-items-center">
+          <div
+            class="button-container d-flex ion-justify-content-between ion-align-items-center"
+          >
             <button class="btn btn-secondry" matStepperPrevious>
-              <mat-icon>chevron_left</mat-icon>
+              <ion-icon name="chevron-back-outline"></ion-icon>
             </button>
             <button class="btn btn-primary" (click)="finishStepper()">
-              <mat-icon>chevron_right</mat-icon>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
             </button>
           </div>
         </div>
