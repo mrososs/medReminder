@@ -1,0 +1,50 @@
+.home-page {
+  &__reminder {
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 30px;
+    img {
+      width: 4rem;
+    }
+    h2{
+        color: #B5A8D5;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    h1{
+        color: #4d55cc !important;
+        font-weight: bold;
+        font-size: 1rem !important;
+        @media screen and (max-width:381px) {
+            font-size: 0.7rem !important;
+            
+        }
+    }
+    .check{
+        .circle{
+            padding: 0.5rem;
+            border-radius: 50%;
+            border: 1px solid black;
+            background:none;
+        }
+    }
+  }
+
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  p {
+    color: #b5a8d5;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .rect {
+    padding: 2rem;
+    background-color: #4d55cc;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
