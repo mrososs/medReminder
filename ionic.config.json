@@ -1,5 +1,7 @@
 {
   "name": "medReminder",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
