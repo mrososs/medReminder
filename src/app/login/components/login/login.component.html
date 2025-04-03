@@ -24,13 +24,12 @@
                   (blur)="updateErrorMessage()"
                   required
                 />
-                <mat-icon
+                <ion-icon
                   *ngIf="loginForm.get('email')?.valid"
                   class="valid-icon"
                   color="primary"
-                >
-                  check_circle
-                </mat-icon>
+                  name="checkmark-outline"
+                ></ion-icon>
               </div>
 
               <mat-error *ngIf="loginForm.get('email')?.invalid">
@@ -54,20 +53,22 @@
                   required
                 />
 
-                <mat-icon
+                <ion-icon
                   (click)="togglePasswordVisibility()"
-                  *ngIf="!loginForm.get('password')?.valid"
-                  >{{
-                    passwordVisible ? "visibility_off" : "visibility"
-                  }}</mat-icon
-                >
-                <mat-icon
+                  *ngIf="!loginForm.get('password')?.valid && passwordVisible"
+                  name="eye-outline"
+                ></ion-icon>
+                <ion-icon
+                  (click)="togglePasswordVisibility()"
+                  *ngIf="!loginForm.get('password')?.valid && !passwordVisible"
+                  name="eye-off-outline"
+                ></ion-icon>
+                <ion-icon
                   *ngIf="loginForm.get('password')?.valid"
                   class="valid-icon"
                   color="primary"
-                >
-                  check_circle
-                </mat-icon>
+                  name="checkmark-outline"
+                ></ion-icon>
               </div>
               <mat-error *ngIf="loginForm.get('password')?.invalid">
                 {{ getPasswordErrorMessage() }}

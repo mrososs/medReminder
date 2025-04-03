@@ -10,49 +10,48 @@ ion-content::part(background) {
 .mat-stepper-horizontal {
   background: none;
 }
-.steps{
-  .rect{
+.steps {
+  .rect {
     width: 10rem;
     border-radius: 30px;
     height: 0.4rem;
     background-color: white;
   }
-  .circle{
+  .circle {
     border-radius: 50%;
     height: 1rem;
     width: 1rem;
     background-color: white;
-    margin-left: 1rem
+    margin-left: 1rem;
   }
 }
-.btn{
-  &.btn-secondry{
+.btn {
+  &.btn-secondry {
     background-color: #272b66;
-    ion-icon{
+    ion-icon {
       color: white;
     }
-    &:focus{
+    &:focus {
       background-color: white;
-      ion-icon{
+      ion-icon {
         color: #272b66;
       }
+    }
   }
-}
-  &.btn-primary{
+  &.btn-primary {
     background-color: white;
-    ;
     height: 100%;
-    &:focus{
+    &:focus {
       background-color: #272b66;
-      ion-icon{
+      ion-icon {
         color: white;
       }
     }
-    
   }
-  ion-icon{
+  ion-icon {
     color: #272b66;
-    font-size: 2.5rem;
-    display: inline;
+    // font-size: 0.2rem;
+    // display: inline;
+    // width: 2rem !important;
   }
 }

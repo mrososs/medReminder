@@ -40,23 +40,40 @@
                   (blur)="updateErrorMessage()"
                   required
                 />
-                <mat-icon
+                <ion-icon
                   *ngIf="registerForm.get(field)?.valid"
                   class="valid-icon"
                   color="primary"
+                  name="checkmark-outline"
                 >
-                  check_circle
-                </mat-icon>
+                </ion-icon>
                 <ng-container *ngIf="registerForm.get(field)?.invalid">
-                  <mat-icon
+                  <ion-icon
                     *ngIf="
-                      (field === 'password' && showPasswordToggle) ||
-                      (field === 'confirmPassword' && showConfirmPasswordToggle)
+                      (field === 'password' &&
+                        showPasswordToggle &&
+                        passwordVisible) ||
+                      (field === 'confirmPassword' &&
+                        showConfirmPasswordToggle &&
+                        passwordVisible)
                     "
                     (click)="togglePasswordVisibility()"
-                  >
-                    {{ passwordVisible ? "visibility_off" : "visibility" }}
-                  </mat-icon>
+                    name="eye-off-outline"
+                    class="toggle-password-visibility"
+                  ></ion-icon>
+                  <ion-icon
+                    *ngIf="
+                      (field === 'password' &&
+                        showPasswordToggle &&
+                        !passwordVisible) ||
+                      (field === 'confirmPassword' &&
+                        showConfirmPasswordToggle &&
+                        !passwordVisible)
+                    "
+                    (click)="togglePasswordVisibility()"
+                    name="eye-outline"
+                    class="toggle-password-visibility"
+                  ></ion-icon>
                 </ng-container>
               </div>
               <mat-error *ngIf="registerForm.get(field)?.invalid">
