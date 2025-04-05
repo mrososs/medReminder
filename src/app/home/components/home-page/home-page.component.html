@@ -1,14 +1,69 @@
-<div class="home-page">
-  <div class="rect">
-    <div class="container">
-      <div
-        class="d-flex ion-justify-content-center ion-align-items-center flex-column"
-      >
-        <h1 class="mt-5">Hello, Mohamed !</h1>
-        <p>Don't Forget To Take Your Pills</p>
-        <div class="mt-5 row w-100">
-          <div class="home-page__reminder col-md-6">
-            <div class="d-flex gap-2">
+<ion-content>
+  <div class="home-page">
+    <div class="rect">
+      <div class="container">
+        <div
+          class="d-flex ion-justify-content-center ion-align-items-center flex-column"
+        >
+          <h1 class="mt-5">Hello, Mohamed !</h1>
+          <p>Don't Forget To Take Your Pills</p>
+          <div class="mt-5 row w-100">
+            <div
+              class="home-page__reminder col-md-6"
+              [ngClass]="{ checked: isTake }"
+              (click)="toggleTakePill()"
+            >
+              <div class="d-flex gap-2">
+                <img src="../../../../assets/img/pills.png" alt="pill" />
+                <div
+                  class="d-flex ion-justify-content-between ion-align-items-center w-100"
+                >
+                  <div
+                    class="d-flex ion-justify-content-start ion-align-items-start flex-column"
+                  >
+                    <h2>Your Next Bill Today</h2>
+                    <h1>Panadol Extra 500mg</h1>
+                  </div>
+                  <div class="check">
+                    <div class="circle">
+                      <ion-icon name="checkmark"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Search & refresher section -->
+    <div class="mt-5 container">
+      <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+      <div class="home-page__search__form mb-4">
+        <form>
+          <ion-searchbar
+            class="custom"
+            [debounce]="1000"
+            animated="true"
+            placeholder="Search for Pill..."
+          ></ion-searchbar>
+        </form>
+      </div>
+      <div class="home-page__main mt-3">
+        <div *ngFor="let pill of reminders" class="mb-5">
+          <h2>Your {{ pill.period }} Pill</h2>
+          <div
+            class="home-page__main__pills col-md-6"
+            [ngClass]="{ checked: pill.checked }"
+            (click)="toggleCheck(pill.id)"
+          >
+            <div
+              class="d-flex ion-justify-content-center ion-align-items-center gap-2"
+            >
               <img src="../../../../assets/img/pills.png" alt="pill" />
               <div
                 class="d-flex ion-justify-content-between ion-align-items-center w-100"
@@ -16,8 +71,9 @@
                 <div
                   class="d-flex ion-justify-content-start ion-align-items-start flex-column"
                 >
-                  <h2>Your Next Bill Today</h2>
-                  <h1>Panadol Extra 500mg</h1>
+                  <h1>{{ pill.title }}</h1>
+                  <p>{{ pill.time }}</p>
+                  <p>Take {{ pill.number }} of Pill</p>
                 </div>
                 <div class="check">
                   <div class="circle">
@@ -31,4 +87,4 @@
       </div>
     </div>
   </div>
-</div>
+</ion-content>
