@@ -1,3 +1,109 @@
-<p>
-  add-pill works!
-</p>
+<ion-content>
+  <div class="add-pill">
+    <div class="rect">
+      <div class="container">
+        <div
+          class="d-flex ion-justify-content-center ion-align-items-center flex-column"
+        >
+          <h1 class="mt-5">Hello, Mohamed !</h1>
+          <p>Add Your Pill</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 container">
+      <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="add-pill__form">
+        <div
+          class="add-pill__form__create d-flex ion-justify-content-between ion-align-items-center"
+        >
+          <h1>Create</h1>
+          <div class="stepper d-flex ion-align-items-center">
+            <div class="rectangle"></div>
+            <div class="circle"></div>
+          </div>
+        </div>
+        <div class="add-pill__form__new-pill mt-2">
+          <h1>Add New Pill</h1>
+          <img src="../../../../assets/img/pills.png" alt="pill" />
+        </div>
+        <div class="add-pill__form__pill-form mt-4">
+          <form [formGroup]="addPillForm">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 mb-2">
+                  <mat-label>Pill Name</mat-label>
+                  <input
+                    matInput
+                    formControlName="pillName"
+                    placeholder="Enter Pill Name"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 mb-2">
+                  <mat-label>Take Time</mat-label>
+                  <mat-select
+                    formControlName="takeTime"
+                    multiple
+                    placeholder="When To Take ?"
+                  >
+                    @for (takeTime of takeTime; track takeTime) {
+                    <mat-option [value]="takeTime">{{ takeTime }}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 mb-2">
+                  <mat-label>Add Time</mat-label>
+                  <input
+                    matInput
+                    [ngxMatTimepicker]="picker"
+                    formControlName="selectedTime"
+                    placeholder="Select Time"
+                  />
+                  <ngx-mat-timepicker #picker></ngx-mat-timepicker>
+                  <mat-icon matSuffix (click)="picker.open()"
+                    >access_time</mat-icon
+                  >
+                </mat-form-field>
+
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="addTime()"
+                  [disabled]="
+                    times.length >= 3 || !addPillForm.get('selectedTime')?.value
+                  "
+                >
+                  Add Time
+                </button>
+
+                <div class="mt-2">
+                  <mat-chip-listbox
+                    aria-label="Selected Times"
+                    multiple
+                    [compareWith]="compareFn"
+                  >
+                    <mat-chip-option
+                      *ngFor="let time of times; let i = index"
+                      [value]="time"
+                      selected
+                      (removed)="removeTime(i)"
+                      removable
+                    >
+                      {{ time }}
+                      <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip-option>
+                  </mat-chip-listbox>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

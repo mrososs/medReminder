@@ -1,0 +1,61 @@
+.add-pill {
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  p {
+    color: #b5a8d5;
+    font-weight: 400;
+    font-size: 1rem;
+    @media screen and (max-width: 415px) {
+      font-size: 0.7rem !important;
+    }
+  }
+  .rect {
+    padding: 2rem;
+    background-color: #4d55cc;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  &__form {
+    &__create {
+      h1 {
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: #b5a8d5;
+      }
+      .stepper {
+        .rectangle {
+          width: 8rem;
+          height: 1rem;
+          border-radius: 30px;
+          background-color: #4d55cc;
+        }
+        .circle {
+          border-radius: 50%;
+          background-color: #4d55cc;
+          padding: 0.6rem;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    &__new-pill {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      h1 {
+        font-size: 2rem;
+        color: #211c84;
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      img {
+        width: 3rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

@@ -7,17 +7,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { RouterModule } from '@angular/router';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [TabsComponent],
   imports: [
     CommonModule,
+    MatChipsModule,
     MatStepperModule,
+    MatSelectModule,
     MatButtonModule,
     MatInputModule,
+    NgxMatTimepickerModule,
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
@@ -29,8 +34,11 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatStepperModule,
     TabsComponent,
+    NgxMatTimepickerModule,
+    MatSelectModule,
     MatInputModule,
     MatIconModule,
+    MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
