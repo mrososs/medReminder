@@ -33,18 +33,26 @@
               </div>
               <div class="add-pill__form__pill-form mt-4">
                 <div class="row">
-                  <div class="col-12 col-md-6">
-                    <mat-form-field appearance="outline" class="w-100 mb-2">
+                  <div class="col-12 col-md-6 mb-2">
+                    <mat-form-field appearance="outline" class="w-100">
                       <mat-label>Pill Name</mat-label>
                       <input
                         matInput
                         formControlName="pillName"
                         placeholder="Enter Pill Name"
                       />
+                      <mat-error
+                        *ngIf="
+                          addPillForm.get('pillName')?.hasError('required') &&
+                          addPillForm.get('pillName')?.touched
+                        "
+                      >
+                        Pill name is required.
+                      </mat-error>
                     </mat-form-field>
                   </div>
-                  <div class="col-12 col-md-6">
-                    <mat-form-field appearance="outline" class="w-100 mb-2">
+                  <div class="col-12 col-md-6 mb-2">
+                    <mat-form-field appearance="outline" class="w-100">
                       <mat-label>Take Time</mat-label>
                       <mat-select
                         formControlName="takeTime"
@@ -57,6 +65,14 @@
                           >{{ time }}</mat-option
                         >
                       </mat-select>
+                      <mat-error
+                        *ngIf="
+                          addPillForm.get('takeTime')?.hasError('required') &&
+                          addPillForm.get('takeTime')?.touched
+                        "
+                      >
+                        Take Time is required.
+                      </mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-12 col-md-6">
@@ -72,6 +88,16 @@
                       <mat-icon matSuffix (click)="picker.open()"
                         >access_time</mat-icon
                       >
+                      <mat-error
+                        *ngIf="
+                          addPillForm
+                            .get('selectedTime')
+                            ?.hasError('required') &&
+                          addPillForm.get('selectedTime')?.touched
+                        "
+                      >
+                        Selected Time is required.
+                      </mat-error>
                     </mat-form-field>
 
                     <button
@@ -114,6 +140,14 @@
                         formControlName="noPerDay"
                         placeholder="Number Of Pills"
                       />
+                      <mat-error
+                        *ngIf="
+                          addPillForm.get('noPerDay')?.hasError('required') &&
+                          addPillForm.get('noPerDay')?.touched
+                        "
+                      >
+                        Number Per Day is required.
+                      </mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-12 col-md-6">
@@ -129,6 +163,14 @@
                           >{{ duration }}</mat-option
                         >
                       </mat-select>
+                      <mat-error
+                      *ngIf="
+                        addPillForm.get('duration')?.hasError('required') &&
+                        addPillForm.get('duration')?.touched
+                      "
+                    >
+                      Duration is required.
+                    </mat-error>
                     </mat-form-field>
                   </div>
                 </div>
@@ -145,7 +187,11 @@
                 <div class="mt-3 mb-5">
                   <div class="row">
                     <div class="col-12">
-                      <button matStepperNext class="w-100 btn btn-create">
+                      <button
+                        type="button"
+                        matStepperNext
+                        class="w-100 btn btn-create"
+                      >
                         Next
                       </button>
                     </div>
@@ -171,7 +217,10 @@
               </div>
               <div class="add-pill__form__pill-form mt-4">
                 <div class="col-12 col-md-6">
-                  <mat-form-field appearance="outline" class="w-100 mb-2 text-area" >
+                  <mat-form-field
+                    appearance="outline"
+                    class="w-100 mb-2 text-area"
+                  >
                     <mat-label>Notes</mat-label>
                     <textarea
                       matInput
@@ -182,6 +231,25 @@
                       cdkAutosizeMaxRows="5"
                     ></textarea>
                   </mat-form-field>
+                </div>
+                <div class="mt-3 mb-5">
+                  <div class="row">
+                    <div class="col-6">
+                      <button matStepperPrevious class="w-100 btn btn-login">
+                        Back
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button
+                        type="submit"
+                        matStepperNext
+                        [disabled]="addPillForm.invalid"
+                        class="w-100 btn btn-create"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

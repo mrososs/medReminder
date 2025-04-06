@@ -52,11 +52,21 @@ export class AddPillComponent implements OnInit {
       notification: [false, Validators.required],
 
       selectedTime: [''], // 👈 add this
-      notes:['']
+      notes: [''],
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.addPillForm.statusChanges.subscribe((status) => {
+      if (status === 'INVALID') {
+        // Set error message if the form is invalid
+        this.errorMessage.set('Please fill in all required fields correctly.');
+      } else {
+        // Clear the error message when the form becomes valid
+        this.errorMessage.set('');
+      }
+    });
+  }
 
   handleRefresh(event: CustomEvent) {
     setTimeout(() => {
@@ -79,6 +89,6 @@ export class AddPillComponent implements OnInit {
   }
   compareFn = (a: string, b: string) => a === b;
   next() {
-    console.log(this.addPillForm.value)
+    console.log(this.addPillForm.value);
   }
 }
