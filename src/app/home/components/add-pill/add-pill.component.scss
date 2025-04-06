@@ -1,4 +1,9 @@
 .add-pill {
+
+  .mat-stepper-vertical,
+  .mat-stepper-horizontal {
+    background: none;
+  }
   h1 {
     color: white;
     font-weight: bold;
@@ -47,14 +52,46 @@
       align-items: center;
 
       h1 {
-        font-size: 2rem;
+        font-size: 1.3rem;
         color: #211c84;
         margin-bottom: 0;
         font-weight: bold;
       }
       img {
-        width: 3rem;
-        margin-left: 1rem;
+        width: 2rem;
+        margin-left: 0.6rem;
+        height: 100%;
+      }
+    }
+    &__pill-form {
+      h1 {
+        font-size: 1.3rem;
+        color: #211c84;
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 0;
+      }
+      .btn {
+        border-radius: 5px;
+        padding: 1rem;
+
+        font-weight: 600;
+
+        &.btn-create {
+          background-color: #7a73d1;
+          color: white;
+
+          &:hover {
+            background-color: #211c84;
+          }
+        }
+        &.btn-login {
+          background: none;
+          border: 1px solid #211c84;
+          color: #211c84;
+        }
       }
     }
   }
